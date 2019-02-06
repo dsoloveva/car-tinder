@@ -87,7 +87,7 @@ class ChoiceContainerUi extends React.Component {
         tabIndex="0"
         onKeyDown={this.handleKey}
       >
-      <h1>Like or Dislike?</h1>
+      <h3 className="m-2">Do you like this?</h3>
       <div className="choice-items">
         { this.props.itemsList && [...this.props.itemsList].reverse().map((item, index) => (
           <ChoiceItem

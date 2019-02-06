@@ -1,7 +1,9 @@
-import { START_FETCHING, LOADING, FINISHED } from '../constants/actions';
+import { START_FETCHING, LOADING, FINISHED, IN_PROGRESS } from '../constants/actions';
 
-export default (state = 'in_progress', action) => {
+export default (state = 'initial', action) => {
   switch(action.type) {
+    case IN_PROGRESS:
+      return 'in_progress';
     case START_FETCHING:
       return 'fetching';
     case LOADING:

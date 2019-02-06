@@ -5,5 +5,6 @@ export const PROCESS = 'PROCESS';
 export const START_FETCHING = 'START_FETCHING';
 export const LOADING = 'LOADING';
 export const FINISHED = 'FINISHED';
+export const IN_PROGRESS = 'IN_PROGRESS';
 
 export const SET_RESULT = 'SET_RESULT';
