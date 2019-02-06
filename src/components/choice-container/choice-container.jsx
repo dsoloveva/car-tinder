@@ -28,18 +28,26 @@ class ChoiceContainerUi extends React.Component {
   handleKey = (e) => {
     const prevItem = { ...this.state.currentItem };
 
-    const nonprocessed = this.props.itemsList.filter(item => !item.status);
-    nonprocessed.length > 1 && this.setState({ currentItem: nonprocessed[1] });
+    
     
     if (e.keyCode === LEFT) {
+      const nonprocessed = this.props.itemsList.filter(item => !item.status);
+    nonprocessed.length > 1 && this.setState({ currentItem: nonprocessed[1] });
       this.props.dislike(prevItem.tags, prevItem.img);
+      if (nonprocessed.length === 1) {
+        this.props.loadResult();
+        return;
+      }
     } else if (e.keyCode === RIGHT) {
+      const nonprocessed = this.props.itemsList.filter(item => !item.status);
+    nonprocessed.length > 1 && this.setState({ currentItem: nonprocessed[1] });
       this.props.like(prevItem.tags, prevItem.img);
+      if (nonprocessed.length === 1) {
+        this.props.loadResult();
+        return;
+      }
     }
-    if (nonprocessed.length === 1) {
-      this.props.loadResult();
-      return;
-    }
+    
     // this.setState({ currentItem: this.state.currentItem + 1 });
   };
 
