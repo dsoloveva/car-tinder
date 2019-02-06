@@ -7,6 +7,8 @@ import { loadResult } from '../../actions/results';
 import { LEFT, RIGHT } from '../../constants/keys';
 import { Button } from 'reactstrap';
 
+import { imagesCount } from '../../reducers/choiceItems';
+
 import './choice-container.css';
 
 const mapStateToProps = state => ({
@@ -89,6 +91,10 @@ class ChoiceContainerUi extends React.Component {
   };
 
   render () {
+    // const curItem = this.props.itemsList.find(item => item.img === this.state.currentItem.img);
+    // const curIndex = this.props.itemsList.indexOf(curItem);
+    const nonprocessed = this.props.itemsList.filter(item => !item.status);
+    const curIndex = imagesCount - nonprocessed.length + 1;
     return (<div
         className="choice-container"
         ref={this.focusContainer}
@@ -96,6 +102,7 @@ class ChoiceContainerUi extends React.Component {
         onKeyDown={this.handleKey}
       >
       <h3 className="m-2">Do you like this?</h3>
+      <h6 className="m-2">{curIndex} from {imagesCount}</h6>
       <div className="choice-items">
         { this.props.itemsList && [...this.props.itemsList].reverse().map((item, index) => (
           <ChoiceItem

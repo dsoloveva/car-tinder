@@ -1,6 +1,6 @@
 import { LIKE, DISLIKE, PROCESS } from '../constants/actions';
 
-const imagesCount = 6;
+export const imagesCount = 10;
 
 const getRandomImages = (n) => {
   const array = [
