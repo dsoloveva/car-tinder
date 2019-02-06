@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { ChoiceContainer }  from '../choice-container';
 import ResultContainer  from '../result-container/result-container';
-import { Spinner } from 'reactstrap';
+import { Fade } from 'reactstrap';
+
+import './main-container.css';
 
 const mapStateToProps = state => ({
   status: state.status
@@ -14,7 +16,8 @@ class MainContainerUI extends Component {
       {this.props.status === 'in_progress'
         ? <ChoiceContainer></ChoiceContainer>
         : this.props.status === 'fetching'
-          ? <Spinner className="mt-5" color="primary" />
+          ? <img className="gif-loader mt-5" src="https://thumbs.gfycat.com/GenerousMadeupHammerheadbird-size_restricted.gif"/>
+          // <Spinner className="mt-5" color="primary" />
           : <ResultContainer></ResultContainer>
       }
     </Fragment>);
