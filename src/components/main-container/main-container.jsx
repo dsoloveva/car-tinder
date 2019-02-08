@@ -16,7 +16,7 @@ class MainContainerUI extends Component {
       {this.props.status === 'in_progress'
         ? <ChoiceContainer></ChoiceContainer>
         : this.props.status === 'fetching'
-          ? <img className="gif-loader mt-5" src="https://thumbs.gfycat.com/GenerousMadeupHammerheadbird-size_restricted.gif"/>
+          ? <img className="gif-loader mt-5" src="images/spinner.gif"/>
           // <Spinner className="mt-5" color="primary" />
           : <ResultContainer></ResultContainer>
       }
